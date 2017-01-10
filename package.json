@@ -1,0 +1,25 @@
+{
+  "name": "mean-todo-app",
+  "version": "1.0.0",
+  "description": "ToDo list application using the mean stack (MangoDB, ExpressJS, AngularJS 2.0, NodeJS).",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kana7/meanToDoApp.git"
+  },
+  "author": "Quentin Fonck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kana7/meanToDoApp/issues"
+  },
+  "homepage": "https://github.com/kana7/meanToDoApp#readme",
+  "devDependencies": {
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "body-parser": "^1.15.2",
+    "mongoose": "^4.7.6"
+  }
+}
