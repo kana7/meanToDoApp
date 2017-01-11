@@ -17,7 +17,7 @@ module.exports = app => {
     });
 
     app.get('/api/todo/:id', (req, res) => {
-        Todos.findById({_id: '5875582b8e3f0d54ec5ed4a3'}, (err, todo) => {
+        Todos.findById(req.params.id, (err, todo) => {
             if (err) throw err;
             res.send(todo);
         });
