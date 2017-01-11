@@ -1,56 +1,73 @@
 var Todos = require('../models/todoModel');
 var bodyParser = require('body-parser');
 
-module.exports = app => {
+module.exports = function (app) {
+
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
         extended: true
     }));
 
-    app.get('/api/todos/:uname', (req, res) => {
+    app.get('/api/todos/:uname', function (req, res) {
+
         Todos.find({
             username: req.params.uname
-        }, (err, todos) => {
+        }, function (err, todos) {
             if (err) throw err;
+
             res.send(todos);
         });
+
     });
 
-    app.get('/api/todo/:id', (req, res) => {
-        Todos.findById({_id: req.params.id}, (err, todo) => {
+    app.get('/api/todo/:id', function (req, res) {
+
+        Todos.findById({
+            _id: req.params.id
+        }, function (err, todo) {
             if (err) throw err;
+
             res.send(todo);
         });
+
     });
 
-    app.post('/api/todo', (req, res) => {
+    app.post('/api/todo', function (req, res) {
+
         if (req.body.id) {
             Todos.findByIdAndUpdate(req.body.id, {
                 todo: req.body.todo,
                 isDone: req.body.isDone,
                 hasAttachment: req.body.hasAttachment
-            }, (err, todo) => {
+            }, function (err, todo) {
+                if (err) throw err;
+
                 res.send('Success');
             });
         } else {
+
             var newTodo = Todos({
                 username: 'test',
                 todo: req.body.todo,
                 isDone: req.body.isDone,
                 hasAttachment: req.body.hasAttachment
             });
-            newTodo.save((err) => {
+            newTodo.save(function (err) {
                 if (err) throw err;
-                res.send('success');
+                res.send('Success');
             });
+
         }
+
     });
 
-    app.delete('/api/todo', (req, res) => {
-        Todos.findByIdAndRemove(req.body.id, err => {
+    app.delete('/api/todo', function (req, res) {
+
+        Todos.findByIdAndRemove(req.body.id, function (err) {
             if (err) throw err;
-            res.send('success');
-        });
+            res.send('Success');
+        })
+
     });
 
-};
+}

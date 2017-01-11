@@ -1,7 +1,10 @@
 var Todos = require('../models/todoModel');
 
 module.exports = function (app) {
-    app.get('/api/setupTodos', (req, res) => {
+
+    app.get('/api/setupTodos', function (req, res) {
+
+        // seed database
         var starterTodos = [{
                 username: 'test',
                 todo: 'Buy milk',
@@ -10,7 +13,7 @@ module.exports = function (app) {
             },
             {
                 username: 'test',
-                todo: 'feed dog',
+                todo: 'Feed dog',
                 isDone: false,
                 hasAttachment: false
             },
@@ -21,8 +24,9 @@ module.exports = function (app) {
                 hasAttachment: false
             }
         ];
-        Todos.create(starterTodos, (err, results) => {
-            res.send(results)
-        })
+        Todos.create(starterTodos, function (err, results) {
+            res.send(results);
+        });
     });
-};
+
+}

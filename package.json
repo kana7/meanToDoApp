@@ -16,10 +16,10 @@
     "url": "https://github.com/kana7/meanToDoApp/issues"
   },
   "homepage": "https://github.com/kana7/meanToDoApp#readme",
-  "devDependencies": {
-    "ejs": "^2.5.5",
-    "express": "^4.14.0",
-    "body-parser": "^1.15.2",
-    "mongoose": "^4.7.6"
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "body-parser": "^1.15.0",
+    "mongoose": "^4.4.7"
   }
 }
